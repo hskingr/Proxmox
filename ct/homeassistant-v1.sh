@@ -8,10 +8,10 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
-set -o errexit 
-set -o errtrace 
-set -o nounset 
-set -o pipefail 
+set -o errexit
+set -o errtrace
+set -o nounset
+set -o pipefail
 shopt -s expand_aliases
 alias die='EXIT=$? LINE=$LINENO error_exit'
 CHECKMARK='\033[0;32m\xE2\x9C\x94\033[0m'
@@ -72,7 +72,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/main/setup/ha_setup.sh
+wget -qL https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/ha_setup.sh
 
 load_module overlay
 
@@ -140,7 +140,7 @@ fi
   ARCH=$(dpkg --print-architecture)
 HOSTNAME=homeassistant
 TEMPLATE_STRING="local:vztmpl/${TEMPLATE}"
-if [ "$STORAGE_TYPE" == "zfspool" ]; then  
+if [ "$STORAGE_TYPE" == "zfspool" ]; then
   CT_FEATURES="fuse=1,keyctl=1,mknod=1,nesting=1"
 else
   CT_FEATURES="nesting=1"

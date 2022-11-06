@@ -43,12 +43,12 @@ else
 fi
 function header_info {
   cat <<"EOF"
-    ___ v4 __      _          
-   /   |  / /___  (_)___  ___ 
+    ___ v4 __      _
+   /   |  / /___  (_)___  ___
   / /| | / / __ \/ / __ \/ _ \
  / ___ |/ / /_/ / / / / /  __/
-/_/  |_/_/ .___/_/_/ /_/\___/ 
-        /_/                   
+/_/  |_/_/ .___/_/_/ /_/\___/
+        /_/
 
 EOF
 }
@@ -251,12 +251,12 @@ export PCT_OPTIONS="
   -unprivileged $CT_TYPE
   $PW
 "
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/create_lxc.sh)" || exit
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/ct/create_lxc.sh)" || exit
 msg_info "Starting LXC Container"
 pct start $CTID
 msg_ok "Started LXC Container"
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 pct set $CTID -description "# ${APP} ${var_version} LXC
-### https://tteck.github.io/Proxmox/
+### https://hskingr.github.io/Proxmox/
 <a href='https://ko-fi.com/D1D7EP4GF'><img src='https://img.shields.io/badge/☕-Buy me a coffee-red' /></a>"
 msg_ok "Completed Successfully!\n"

@@ -16,13 +16,13 @@ done
 clear
 function header_info {
 echo -e "${BL}
- __      __         _ _                         _            
- \ \    / /        | | |                       | |           
-  \ \  / /_ _ _   _| | |___      ____ _ _ __ __| | ___ _ __  
-   \ \/ / _  | | | | | __\ \ /\ / / _  |  __/ _  |/ _ \  _ \ 
+ __      __         _ _                         _
+ \ \    / /        | | |                       | |
+  \ \  / /_ _ _   _| | |___      ____ _ _ __ __| | ___ _ __
+   \ \/ / _  | | | | | __\ \ /\ / / _  |  __/ _  |/ _ \  _ \
     \  / (_| | |_| | | |_ \ V  V / (_| | | | (_| |  __/ | | |
      \/ \__,_|\__,_|_|\__| \_/\_/ \__,_|_|  \__,_|\___|_| |_|
-                                                                                                                        
+
 ${CL}"
 }
 
@@ -90,7 +90,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/main/setup/vault_setup.sh
+wget -qL https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/vault_setup.sh
 
 load_module overlay
 echo -e "${RD} Expect 30+ minute install time. ${CL} \n"

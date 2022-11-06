@@ -16,15 +16,15 @@ done
 clear
 function header_info {
 echo -e "${YW}
-  _______       _               ___  __  __  ____ _______ _______ 
+  _______       _               ___  __  __  ____ _______ _______
  |___  (_)     | |             |__ \|  \/  |/ __ \__   __|__   __|
-    / / _  __ _| |__   ___  ___   ) | \  / | |  | | | |     | |   
-   / / | |/ _  |  _ \ / _ \/ _ \ / /| |\/| | |  | | | |     | |   
-  / /__| | (_| | |_) |  __/  __// /_| |  | | |__| | | |     | |   
- /_____|_|\__, |____/ \___|\___|____|_|  |_|\___\_\ |_|     |_|   
-           __/ |                                                  
-          |___/                                                   
-                                                                                                                                                                                            
+    / / _  __ _| |__   ___  ___   ) | \  / | |  | | | |     | |
+   / / | |/ _  |  _ \ / _ \/ _ \ / /| |\/| | |  | | | |     | |
+  / /__| | (_| | |_) |  __/  __// /_| |  | | |__| | | |     | |
+ /_____|_|\__, |____/ \___|\___|____|_|  |_|\___\_\ |_|     |_|
+           __/ |
+          |___/
+
 ${CL}"
 }
 
@@ -196,7 +196,7 @@ function cleanup() {
   popd >/dev/null
   rm -rf $TEMP_DIR
 }
- if [ "$IM" == "1" ]; then 
+ if [ "$IM" == "1" ]; then
  FEATURES="nesting=1,keyctl=1"
  else
  FEATURES="nesting=1"
@@ -219,7 +219,7 @@ export PCT_OPTIONS="
   -unprivileged ${IM}
   ${PW}
 "
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/create_lxc.sh)" || exit
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/ct/create_lxc.sh)" || exit
 
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
 if [ "$STORAGE_TYPE" == "zfspool" ]; then
@@ -229,7 +229,7 @@ fi
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
 lxc.cgroup2.devices.allow: a
-lxc.cap.drop: 
+lxc.cap.drop:
 lxc.cgroup2.devices.allow: c 188:* rwm
 lxc.cgroup2.devices.allow: c 189:* rwm
 lxc.mount.entry: /dev/serial/by-id  dev/serial/by-id  none bind,optional,create=dir
@@ -256,7 +256,7 @@ echo -e "${CM}${CL} \r"
 
 alias lxc-cmd="lxc-attach -n $CTID --"
 
-lxc-cmd bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/setup/zigbee2mqtt-install.sh)" || exit
+lxc-cmd bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/zigbee2mqtt-install.sh)" || exit
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 

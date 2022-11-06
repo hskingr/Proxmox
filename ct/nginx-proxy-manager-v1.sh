@@ -10,10 +10,10 @@ while true; do
     esac
 done
 
-set -o errexit  
-set -o errtrace 
-set -o nounset  
-set -o pipefail 
+set -o errexit
+set -o errtrace
+set -o nounset
+set -o pipefail
 shopt -s expand_aliases
 alias die='EXIT=$? LINE=$LINENO error_exit'
 CHECKMARK='\033[0;32m\xE2\x9C\x94\033[0m'
@@ -74,7 +74,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/main/setup/npm_setup.sh
+wget -qL https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/npm_setup.sh
 
 load_module overlay
 

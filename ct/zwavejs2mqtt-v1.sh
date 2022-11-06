@@ -17,23 +17,23 @@ done
 clear
 function header_info {
 echo -e "${RD}
-  ______                       _     ___  __  __  ____ _______ _______ 
+  ______                       _     ___  __  __  ____ _______ _______
  |___  /                      (_)   |__ \|  \/  |/ __ \__   __|__   __|
-    / /_      ____ ___   _____ _ ___   ) | \  / | |  | | | |     | |   
-   / /\ \ /\ / / _  \ \ / / _ \ / __| / /| |\/| | |  | | | |     | |   
-  / /__\ V  V / (_| |\ V /  __/ \__ \/ /_| |  | | |__| | | |     | |   
- /_____|\_/\_/ \__,_| \_/ \___| |___/____|_|  |_|\___\_\ |_|     |_|   
-                             _/ |                                      
-                            |__/                                       
+    / /_      ____ ___   _____ _ ___   ) | \  / | |  | | | |     | |
+   / /\ \ /\ / / _  \ \ / / _ \ / __| / /| |\/| | |  | | | |     | |
+  / /__\ V  V / (_| |\ V /  __/ \__ \/ /_| |  | | |__| | | |     | |
+ /_____|\_/\_/ \__,_| \_/ \___| |___/____|_|  |_|\___\_\ |_|     |_|
+                             _/ |
+                            |__/
 ${CL}"
 }
 
 header_info
 
-set -o errexit 
-set -o errtrace 
-set -o nounset 
-set -o pipefail 
+set -o errexit
+set -o errtrace
+set -o nounset
+set -o pipefail
 shopt -s expand_aliases
 alias die='EXIT=$? LINE=$LINENO error_exit'
 CHECKMARK='\033[0;32m\xE2\x9C\x94\033[0m'
@@ -94,7 +94,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/main/setup/zwavejs2mqtt_setup.sh
+wget -qL https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/zwavejs2mqtt_setup.sh
 
 load_module overlay
 

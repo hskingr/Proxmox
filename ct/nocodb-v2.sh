@@ -18,12 +18,12 @@ done
 clear
 function header_info {
 echo -e "${YW}
-  _   _                 _____  ____  
- | \ | |               |  __ \|  _ \ 
+  _   _                 _____  ____
+ | \ | |               |  __ \|  _ \
  |  \| | ___   ___ ___ | |  | | |_) |
- |     |/ _ \ / __/ _ \| |  | |  _ < 
+ |     |/ _ \ / __/ _ \| |  | |  _ <
  | |\  | (_) | (_| (_) | |__| | |_) |
- |_| \_|\___/ \___\___/|_____/|____/ 
+ |_| \_|\___/ \___\___/|_____/|____/
 ${CL}"
 }
 
@@ -195,7 +195,7 @@ function cleanup() {
   popd >/dev/null
   rm -rf $TEMP_DIR
 }
- if [ "$IM" == "1" ]; then 
+ if [ "$IM" == "1" ]; then
  FEATURES="nesting=1,keyctl=1"
  else
  FEATURES="nesting=1"
@@ -218,7 +218,7 @@ export PCT_OPTIONS="
   -unprivileged ${IM}
   ${PW}
 "
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/create_lxc.sh)" || exit
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/ct/create_lxc.sh)" || exit
 
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
 if [ "$STORAGE_TYPE" == "zfspool" ]; then
@@ -249,10 +249,10 @@ echo -e "${CM}${CL} \r"
 
 alias lxc-cmd="lxc-attach -n $CTID --"
 
-lxc-cmd bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/setup/$HN-install.sh)" || exit
+lxc-cmd bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/$HN-install.sh)" || exit
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 
-echo -e "${GN}Successfully created ${APP} LXC to${CL} ${BL}$CTID${CL}. 
+echo -e "${GN}Successfully created ${APP} LXC to${CL} ${BL}$CTID${CL}.
 ${BL}${APP}${CL} should be reachable by going to the following URL.
          ${BL}http://${IP}:8080/dashboard${CL}\n"

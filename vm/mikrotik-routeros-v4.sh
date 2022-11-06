@@ -62,9 +62,9 @@ function header_info {
 echo -e "${RD}
     __  ____ __              __  _ __      ____              __            ____  _____
    /  |/  (_) /___________  / /_(_) /__   / __ \____  __  __/ /____  _____/ __ \/ ___/
-  / /|_/ / / //_/ ___/ __ \/ __/ / //_/  / /_/ / __ \/ / / / __/ _ \/ ___/ / / /\__ \ 
- / /  / / /  < / /  / /_/ / /_/ /  < v4 / _  _/ /_/ / /_/ / /_/  __/ /  / /_/ /___/ / 
-/_/  /_/_/_/|_/_/   \____/\__/_/_/|_|  /_/ |_|\____/\__,_/\__/\___/_/   \____//____/  
+  / /|_/ / / //_/ ___/ __ \/ __/ / //_/  / /_/ / __ \/ / / / __/ _ \/ ___/ / / /\__ \
+ / /  / / /  < / /  / /_/ / /_/ /  < v4 / _  _/ /_/ / /_/ / /_/  __/ /  / /_/ /___/ /
+/_/  /_/_/_/|_/_/   \____/\__/_/_/|_|  /_/ |_|\____/\__,_/\__/\___/_/   \____//____/
 ${CL}"
 }
 function msg_info() {
@@ -147,7 +147,7 @@ if [ $exitstatus = 0 ]; then
 else
     VLAN=",tag=$VLAN1"
     echo -e "${DGN}Using Vlan: ${BGN}$VLAN1${CL}"
-  fi  
+  fi
 fi
 if (whiptail --title "START VIRTUAL MACHINE" --yesno "Start Mikrotik RouterOS VM when completed?" 10 58); then
     echo -e "${DGN}Start Mikrotik RouterOS VM when completed: ${BGN}yes${CL}"
@@ -251,7 +251,7 @@ qm set $VMID \
 qm set $VMID \
   -boot order=scsi0 >/dev/null
 qm set $VMID -description "# Mikrotik RouterOS
-### https://github.com/tteck/Proxmox" >/dev/null
+### https://github.com/hskingr/Proxmox" >/dev/null
 msg_ok "Mikrotik RouterOS VM ${CL}${BL}(${HN})"
 if [ "$START_VM" == "yes" ]; then
 msg_info "Starting Mikrotik RouterOS VM"

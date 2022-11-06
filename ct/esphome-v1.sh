@@ -18,13 +18,13 @@ done
 clear
 function header_info {
 echo -e "${CL}
-  ______  _____ _____  _    _  ____  __  __ ______ 
+  ______  _____ _____  _    _  ____  __  __ ______
  |  ____|/ ____|  __ \| |  | |/ __ \|  \/  |  ____|
- | |__  | (___ | |__) | |__| | |  | | \  / | |__   
- |  __|  \___ \|  ___/|  __  | |  | | |\/| |  __|  
- | |____ ____) | |    | |  | | |__| | |  | | |____ 
+ | |__  | (___ | |__) | |__| | |  | | \  / | |__
+ |  __|  \___ \|  ___/|  __  | |  | | |\/| |  __|
+ | |____ ____) | |    | |  | | |__| | |  | | |____
  |______|_____/|_|    |_|  |_|\____/|_|  |_|______|
-                                                                                                                                                                           
+
 ${CL}"
 }
 
@@ -94,7 +94,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/main/setup/esphome_setup.sh
+wget -qL https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/esphome_setup.sh
 
 load_module overlay
 

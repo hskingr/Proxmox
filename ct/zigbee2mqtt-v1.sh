@@ -73,7 +73,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/main/setup/zigbee2mqtt_setup.sh
+wget -qL https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/zigbee2mqtt_setup.sh
 
 load_module overlay
 
@@ -148,7 +148,7 @@ pct create $CTID $TEMPLATE_STRING -arch $ARCH -features nesting=1 \
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
 lxc.cgroup2.devices.allow: a
-lxc.cap.drop: 
+lxc.cap.drop:
 lxc.cgroup2.devices.allow: c 188:* rwm
 lxc.cgroup2.devices.allow: c 189:* rwm
 lxc.mount.entry: /dev/serial/by-id  dev/serial/by-id  none bind,optional,create=dir

@@ -59,9 +59,9 @@ function header_info {
 echo -e "${RD}
     ____  _     __  ___              __  _____   ____  _____
    / __ \(_)   /  |/  /___  _  __   / / / /   | / __ \/ ___/
-  / /_/ / /v4_/ /|_/ / __ \| |/_/  / /_/ / /| |/ / / /\__ \ 
- / ____/ /___/ /  / / /_/ />  <   / __  / ___ / /_/ /___/ / 
-/_/   /_/   /_/  /_/\____/_/|_|  /_/ /_/_/  |_\____//____/  
+  / /_/ / /v4_/ /|_/ / __ \| |/_/  / /_/ / /| |/ / / /\__ \
+ / ____/ /___/ /  / / /_/ />  <   / __  / ___ / /_/ /___/ /
+/_/   /_/   /_/  /_/\____/_/|_|  /_/ /_/_/  |_\____//____/
 ${CL}"
 }
 function msg_info() {
@@ -150,7 +150,7 @@ if [ $exitstatus = 0 ]; then
 else
     VLAN=",tag=$VLAN1"
     echo -e "${DGN}Using Vlan: ${BGN}$VLAN1${CL}"
-  fi  
+  fi
 fi
 if (whiptail --title "START VIRTUAL MACHINE" --yesno "Start VM when completed?" 10 58); then
     echo -e "${DGN}Start VM when completed: ${BGN}yes${CL}"
@@ -242,7 +242,7 @@ qm set $VMID \
 qm set $VMID \
   -boot order=scsi0 >/dev/null
 qm set $VMID -description "# PiMox HAOS
-### https://github.com/tteck/Proxmox
+### https://github.com/hskingr/Proxmox
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D7EP4GF)" >/dev/null
 msg_ok "Created HAOS VM ${CL}${BL}(${HN})"
 if [ "$START_VM" == "yes" ]; then

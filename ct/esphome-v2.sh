@@ -18,11 +18,11 @@ done
 clear
 function header_info {
 echo -e "${RD}
-  ______  _____ _____  _    _  ____  __  __ ______ 
+  ______  _____ _____  _    _  ____  __  __ ______
  |  ____|/ ____|  __ \| |  | |/ __ \|  \/  |  ____|
- | |__  | (___ | |__) | |__| | |  | | \  / | |__   
- |  __|  \___ \|  ___/|  __  | |  | | |\/| |  __|  
- | |____ ____) | |    | |  | | |__| | |  | | |____ 
+ | |__  | (___ | |__) | |__| | |  | | \  / | |__
+ |  __|  \___ \|  ___/|  __  | |  | | |\/| |  __|
+ | |____ ____) | |    | |  | | |__| | |  | | |____
  |______|_____/|_|    |_|  |_|\____/|_|  |_|______|
 
 ${CL}"
@@ -196,7 +196,7 @@ function cleanup() {
   popd >/dev/null
   rm -rf $TEMP_DIR
 }
- if [ "$IM" == "1" ]; then 
+ if [ "$IM" == "1" ]; then
  FEATURES="nesting=1,keyctl=1"
  else
  FEATURES="nesting=1"
@@ -219,7 +219,7 @@ export PCT_OPTIONS="
   -unprivileged ${IM}
   ${PW}
 "
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/create_lxc.sh)" || exit
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/ct/create_lxc.sh)" || exit
 
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
 if [ "$STORAGE_TYPE" == "zfspool" ]; then
@@ -250,7 +250,7 @@ echo -e "${CM}${CL} \r"
 
 alias lxc-cmd="lxc-attach -n $CTID --"
 
-lxc-cmd bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/setup/$HN-install.sh)" || exit
+lxc-cmd bash -c "$(wget -qLO - https://raw.githubusercontent.com/hskingr/Proxmox/main/setup/$HN-install.sh)" || exit
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 

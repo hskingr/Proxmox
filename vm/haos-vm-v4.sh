@@ -67,10 +67,10 @@ function header_info {
 echo -e "${HA}
     __  __ ___    ____  _____
    / / / //   |v4/ __ \/ ___/
-  / /_/ // /| | / / / /\__ \ 
- / __  // ___ |/ /_/ /___/ / 
-/_/ /_//_/  |_|\____//____/  
-     Home Assistant OS       
+  / /_/ // /| | / / / /\__ \
+ / __  // ___ |/ /_/ /___/ /
+/_/ /_//_/  |_|\____//____/
+     Home Assistant OS
 ${CL}"
 }
 function msg_info() {
@@ -160,7 +160,7 @@ if [ $exitstatus = 0 ]; then
 else
     VLAN=",tag=$VLAN1"
     echo -e "${DGN}Using Vlan: ${BGN}$VLAN1${CL}"
-  fi  
+  fi
 fi
 if (whiptail --title "START VIRTUAL MACHINE" --yesno "Start VM when completed?" 10 58); then
     echo -e "${DGN}Start VM when completed: ${BGN}yes${CL}"
@@ -221,7 +221,7 @@ fi
 msg_ok "Using ${CL}${BL}$STORAGE${CL} ${GN}for Storage Location."
 msg_ok "Virtual Machine ID is ${CL}${BL}$VMID${CL}."
 msg_info "Getting URL for Home Assistant ${BRANCH} Disk Image"
-if [ "$BRANCH" == "$DEV" ]; then 
+if [ "$BRANCH" == "$DEV" ]; then
 URL=https://os-builds.home-assistant.io/${BRANCH}/haos_ova-${BRANCH}.qcow2.xz
 else
 URL=https://github.com/home-assistant/operating-system/releases/download/${BRANCH}/haos_ova-${BRANCH}.qcow2.xz
@@ -265,7 +265,7 @@ qm set $VMID \
 qm set $VMID \
   -boot order=scsi0 >/dev/null
 qm set $VMID -description "# Home Assistant OS
-### https://github.com/tteck/Proxmox
+### https://github.com/hskingr/Proxmox
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D7EP4GF)" >/dev/null
 msg_ok "Created HAOS VM ${CL}${BL}(${HN})"
 if [ "$START_VM" == "yes" ]; then
